@@ -131,12 +131,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Open in your browser:
-
-- Application: http://127.0.0.1:8000/
-- Payroll Dashboard: http://127.0.0.1:8000/payroll-dashboard/
-- Employee Management: http://127.0.0.1:8000/employees/
-- Admin Panel: http://127.0.0.1:8000/admin/
+Live Application: https://payrollguard-payroll-validation-system.onrender.com
 
 ## Payroll Validation Rules
 
