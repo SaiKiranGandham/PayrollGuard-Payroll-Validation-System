@@ -1,0 +1,118 @@
+
+{% extends "base.html" %}
+
+{% block title %}Payroll Dashboard | PayrollGuard{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+
+    <div class="mb-4">
+        <h2 class="fw-bold">Payroll Dashboard</h2>
+        <p class="text-muted">Payroll validation and reconciliation overview</p>
+    </div>
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Active Employees</h6>
+                <h2 class="fw-bold">{{ total_employees }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Total Payroll</h6>
+                <h2 class="fw-bold">₹{{ total_payroll|floatformat:2 }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Payroll Records</h6>
+                <h2 class="fw-bold">{{ total_payrolls }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Approved</h6>
+                <h2 class="fw-bold text-success">{{ approved_payrolls }}</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Pending</h6>
+                <h3 class="text-warning">{{ pending_payrolls }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Draft</h6>
+                <h3>{{ draft_payrolls }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Rejected</h6>
+                <h3 class="text-danger">{{ rejected_payrolls }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Open Exceptions</h6>
+                <h3 class="text-danger">{{ payroll_exceptions }}</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm border-0 p-4 mb-4">
+        <h5 class="fw-bold mb-3">Payroll Status Summary</h5>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Payroll Status</th>
+                        <th>Number of Records</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in payroll_status %}
+                    <tr>
+                        <td>{{ item.status }}</td>
+                        <td>{{ item.count }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            No payroll records available.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 p-4">
+        <h5 class="fw-bold">Exception Summary</h5>
+        <p class="text-muted mb-0">
+            Open exceptions: {{ payroll_exceptions }}
+            <br>
+            Resolved exceptions: {{ resolved_exceptions }}
+        </p>
+    </div>
+
+</div>
+{% endblock %}

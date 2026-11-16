@@ -1,0 +1,99 @@
+
+{% extends "base.html" %}
+
+{% block title %}Employee Management | PayrollGuard{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+
+    <div class="mb-4">
+        <h2 class="fw-bold">Employee Management</h2>
+        <p class="text-muted">View and manage employee records</p>
+    </div>
+
+    <!-- Employee Summary -->
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Total Employees</h6>
+                <h2>{{ total_employees }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Active Employees</h6>
+                <h2 class="text-success">{{ active_employees }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-3">
+                <h6 class="text-muted">Inactive Employees</h6>
+                <h2 class="text-danger">{{ inactive_employees }}</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Employee Table -->
+    <div class="card shadow-sm border-0 p-4">
+
+        <h5 class="fw-bold mb-3">Employee Records</h5>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-light">
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.employee_id }}</td>
+
+                        <td>
+                            {{ employee.first_name }}
+                            {{ employee.last_name }}
+                        </td>
+
+                        <td>{{ employee.email }}</td>
+
+                        <td>{{ employee.department }}</td>
+
+                        <td>{{ employee.designation }}</td>
+
+                        <td>
+                            {% if employee.is_active %}
+                                <span class="badge bg-success">Active</span>
+                            {% else %}
+                                <span class="badge bg-danger">Inactive</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            No employee records found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

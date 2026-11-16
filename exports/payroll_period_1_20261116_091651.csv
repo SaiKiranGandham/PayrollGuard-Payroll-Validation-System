@@ -1,0 +1,2 @@
+﻿employee_id,employee_name,pay_period_start,pay_period_end,basic_salary,total_hours,overtime_hours,gross_pay,total_allowances,total_deductions,net_pay,status
+EMP001,Sai Kiran,2026-11-01,2026-11-30,30000.00,160.00,2.00,30000.00,5000.00,1800.00,33200.00,APPROVED

@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Dashboard | PayrollGuard{% endblock %}
+
+{% block content %}
+
+<div class="p-4 mb-4 bg-light rounded-3">
+    <h1>Welcome to PayrollGuard</h1>
+    <p class="lead">
+        Payroll Validation & Reconciliation Management System
+    </p>
+    <p>
+        Validate employee payroll data, identify anomalies,
+        manage exceptions, and approve payroll before export.
+    </p>
+</div>
+
+<div class="row g-3">
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5>Employee Management</h5>
+                <p>Manage employee information and pay groups.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5>Payroll Processing</h5>
+                <p>Manage payroll periods and payroll records.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5>Payroll Validation</h5>
+                <p>Identify payroll errors and anomalies.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5>Exception Management</h5>
+                <p>Review and resolve payroll exceptions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5>Approval Management</h5>
+                <p>Approve validated payroll records.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5>Audit Trail</h5>
+                <p>Track payroll changes and activities.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
